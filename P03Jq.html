@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Friend's</title>
+    
+    <style>
+        body {
+            position: sticky;
+           
+        }
+        .judul {
+            color: #ff6969;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 15px;
+        }
+
+        .tabelku {
+            width: 90%;
+            margin-top: 20px;
+        }
+
+        th {
+            border: 1px solid #ccc;
+            padding: 10px;
+            background: #ff6969;
+        }
+
+        td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        td:hover {
+            background: #ff6969;
+        }
+
+        h3 a {
+            color: #ff6969;
+            display: inline-block;
+            max-width: 100px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <center><h2 class="judul">Top 5 My Friend's</h2>
+    <h3><a href="index.html" onclick="return confirm('Yakin mau Kembali?')">Home</a></center></h3>
+
+    <center><table class="tabelku">
+        <thead>
+            <tr>
+                <th>NOMOR</th>
+                <th>NAMA</th>
+                <th>ALAMAT</th>
+                <th colspan="2">Aksi</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr id="brs_1">
+                <td class="text" id="nomor1">1.</td>
+                <td class="nama_mhs">Nurul</td>
+                <td class="text" id="alamat1">Tegal</td>
+                <td class="hapus" id="hapus_1">Hapus</td>
+            </tr>
+            <tr id="brs_2">
+                <td class="text" id="nomor2">2.</td>
+                <td class="nama_mhs">Mahda</td>
+                <td class="text" id="alamat2">Kuningan</td>
+                <td class="hapus" id="hapus_2">Hapus</td>
+            </tr>
+            <tr id="brs_3">
+                <td class="text" id="nomor3">3.</td>
+                <td class="nama_mhs">Zahra</td>
+                <td class="text" id="alamat3">Kuningan</td>
+                <td class="hapus" id="hapus_3">Hapus</td>
+            </tr>
+            <tr id="brs_4">
+                <td class="text" id="nomor4">4.</td>
+                <td class="nama_mhs">Naufan</td>
+                <td class="text" id="alamat4">Kuningan</td>
+                <td class="hapus" id="hapus_4">Hapus</td>
+            </tr>
+            <tr id="brs_5">
+                <td class="text" id="nomor5">5.</td>
+                <td class="nama_mhs">Lukman</td>
+                <td class="text" id="alamat5">Kuningan</td>
+                <td class="hapus" id="hapus_5">Hapus</td>
+            </tr>
+        </tbody>
+    </table></center>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
+    <script>
+         $(document).ready(function(){ $('.text').click(function(){ 
+            let text = $(this).text();
+            alert(`Anda mengklik text yang berisi text "${text}"`);
+            if(text!='HAPUS'){ 
+             let text2 = prompt('Mau diubah?:', text);
+                if(!text2) return; $(this).text(text2); }
+                else{ let yakin = confirm('Yakin?'); if(!yakin) return;  } 
+        }) }) 
+
+        $(document).ready(function(){
+        //alert(0)
+            $('.nama_mhs').click(function(){
+                //alert(1)
+                let isi= $(this).text();
+                //alert(isi);
+                let isi2 = prompt('Ubah dengan:', isi);
+                if (!isi2) return;
+                //alert(isi2);
+
+                $(this).text(isi2);
+            })
+
+            $('.hapus').click(function(){
+                //alert(1)
+                let yakin = confirm('Yakin mau menghapus?');
+                if(!yakin) return;
+
+                let id = $(this).prop('id');
+                //alert(id);
+
+                let rid = id.split('_');
+                let baris_ke = rid[1];
+
+                //alert(baris_ke);
+
+                $('#brs_'+baris_ke).slideUp()
+
+                //alert('Anda yakin')
+            })
+
+            $('.nama alamat').click(function(){
+            //alert(1)
+            })
+        })
+
+    </script>
+</body>
+</html>
